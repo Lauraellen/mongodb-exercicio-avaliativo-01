@@ -7,24 +7,6 @@ aula = AulaDB()
 
 newClass = input("Deseja cadastrar uma nova aula? (S - sim | N - não) ")
 
-def newStudents(qtdStudents: int):
-    # Cadastre os alunos
-    students = []
-    while (len(students) < qtdStudents):
-        nomeAluno = input("Nome do aluno: ")
-        mat = input("Matrícula: ")
-        curso = input("Curso: ")
-        periodo = input("Período: ")
-
-        students.append({"nome": nomeAluno, "matricula": mat, "curso": curso, "periodo": periodo})
-        print(students)
-
-    else:
-        pass
-
-    return students
-
-
 if (newClass == 'S'):
 
     #Insira o nome do professor e sua especialidade
@@ -33,42 +15,37 @@ if (newClass == 'S'):
 
     professor = aula.newTeacher(nomeProfessor, especialidade);
 
-    newStudent = input("Deseja cadastrar estudantes? (S - sim | N - não) ")
-    if (newStudent == 'S'):
-        #Insira quantos aluno deseja cadastrar
-        qtdStudents = int(input("Quantos alunos deseja cadastrar? "))
 
-        students = newStudents(qtdStudents);
+    #Insira quantos aluno deseja cadastrar
+    qtdStudents = int(input("Quantos alunos deseja cadastrar? "))
 
-        #Insira o assunto da aula
-        className = input("Assunto da aula: ")
+    students = aula.newStudents(qtdStudents)
 
-        #Insira a aula no banco de dados
-        newClass = aula.newClass(className, professor, students)
-    else:
-        pass
+    #Insira o assunto da aula
+    className = input("Assunto da aula: ")
+
+    #Insira a aula no banco de dados
+    newClass = aula.newClass(className, professor, students)
+
 else:
     pass
 
-# addStudent = input("Deseja inserir estudantes em uma aula já existente? (S - sim | N - não) ")
-#
-# if(addStudent == 'S'):
-#     qtdStudents = int(input("Quantos alunos deseja cadastrar? "))
-#     id = input("Qual o id da aula em que deseja adicionar novos alunos? ")
-#     students = newStudents(qtdStudents)
-#     aula.addStudents(id, students)
-# else:
-#     pass
 
 #Leia as todas as aulas cadastradas
-allClasses = aula.getClasses()
+viewClass = input("Deseja visualizar as aulas cadastradas? (S - sim | N - não) ")
+
+if(viewClass == 'S'):
+    allClasses = aula.getClasses()
+    print(allClasses)
+else:
+    pass
 
 #Atualizar uma aula
-updateClass = input("Deseja atualizar o nome de alguma aula? (S - sim | N - não) ")
+updateClass = input("Deseja atualizar o assunto de alguma aula? (S - sim | N - não) ")
 
 if(updateClass == 'S'):
     id = input("ID da aula: ")
-    subject = input("Nome da aula: ")
+    subject = input("Assunto da aula: ")
     res = aula.updateClass(id, subject)
 else:
     pass
@@ -82,5 +59,3 @@ if(removeClass == 'S'):
 else:
     pass
 
-
-writeAJson(allClasses, "Aulas")
