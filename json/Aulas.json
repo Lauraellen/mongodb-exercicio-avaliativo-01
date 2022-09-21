@@ -1,0 +1,44 @@
+[
+    {
+        "_id": {
+            "$oid": "632a48844e53321165eaf5c7"
+        },
+        "assunto": "Mongo",
+        "professor": {
+            "professor": "Renzo",
+            "especialidade": "Banco de dados"
+        },
+        "alunos": [
+            {
+                "nome": "Samuel",
+                "matricula": "157",
+                "curso": "GES",
+                "periodo": "6"
+            }
+        ]
+    },
+    {
+        "_id": {
+            "$oid": "632a57fe20d41052a4c36f36"
+        },
+        "assunto": "Filas",
+        "professor": {
+            "professor": "Renan",
+            "especialidade": "C\u00e1lculo"
+        },
+        "alunos": [
+            {
+                "nome": "Laura",
+                "matricula": "1657",
+                "curso": "GEC",
+                "periodo": "7"
+            },
+            {
+                "nome": "Daiane",
+                "matricula": "789",
+                "curso": "GEC",
+                "periodo": "7"
+            }
+        ]
+    }
+]
